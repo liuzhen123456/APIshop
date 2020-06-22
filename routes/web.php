@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//用户登录与注册
+Route::prefix('/login')->group(function (){
+   Route::get('login','Admin\LoginController@login');
+   Route::post('login_do','Admin\LoginController@login_do');
+   //注册
+   Route::get('reg','Admin\LoginController@reg');
+   Route::post('reg_do','Admin\LoginController@reg_do');
+});
+//个人中心
+Route::get('/user/center','Admin\UserController@center');
