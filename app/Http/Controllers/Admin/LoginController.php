@@ -19,16 +19,16 @@ class LoginController extends Controller
         if($userInfo){
             if(!$res){
                 echo "账号密码错误";
-                return redirrect(url('/login/login'));
+                return redirect(url('/login/login'));
             }
         }
         if(!$userInfo){
             echo "账号密码错误";
-            return redirrect(url('/login/login'));
+            return redirect(url('/login/login'));
         }
         session(['userInfo'=>$userInfo]);
         return redirect(url('/user/center'));
-        dump($userInfo);
+        //dump($userInfo);
     }
 
 
@@ -73,5 +73,10 @@ class LoginController extends Controller
         if($res){
             return redirect(url('/login/login'));
         }
+    }
+
+    public function test(){
+        session(['userInfo'=>null]);
+
     }
 }

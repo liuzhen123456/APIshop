@@ -25,4 +25,7 @@ Route::prefix('/login')->group(function (){
    Route::post('reg_do','Admin\LoginController@reg_do');
 });
 //个人中心
-Route::get('/user/center','Admin\UserController@center');
+Route::get('/user/center','Admin\UserController@center')->middleware('islogin');
+
+//测试
+Route::get('/test','Admin\LoginController@test');
