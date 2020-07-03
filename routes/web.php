@@ -29,3 +29,19 @@ Route::get('/user/center','Admin\UserController@center')->middleware('islogin');
 
 //测试
 Route::get('/test','Admin\LoginController@test');
+
+
+
+//API接口
+Route::post('/api/login','API\ApiController@login');//登录
+
+Route::post('/api/reg','API\ApiController@reg');//注册
+
+Route::get('/api/center','API\ApiController@center');//个人中心
+
+Route::get('/api/orders','API\ApiController@orders')->middleware('checkpri');//我的订单
+
+Route::get('/api/cart','API\ApiController@cart')->middleware('checkpri');//购物车
+
+Route::get('/api/a','API\TestController@a');
+
